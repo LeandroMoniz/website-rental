@@ -20,11 +20,13 @@ app.use('/users', UserRoutes)
 app.use('/Rent', RentRoutes)
 
 
-// 5000 para o backend e 3000 para frontend
-// Criar tabelas antes da aplicação rodar - Create tables before the application runs
+ //5000 para o backend e 3000 para frontend
+ //Criar tabelas antes da aplicação rodar - Create tables before the application runs
 conn
   .sync()
   .then(() => {
     app.listen(5000)
   })
   .catch((err) => console.log(err))
+
+  //app.listen(5000)

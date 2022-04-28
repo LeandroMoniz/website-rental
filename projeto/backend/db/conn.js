@@ -1,11 +1,18 @@
-const { Sequelize } = require('sequelize')
+const { Sequelize } = require('sequelize');
 
-const sequelize = new Sequelize({
-  dialect: 'sqlite',
-  storage: 'path/to/database.sqlite'
-});
+const sequelize = new Sequelize('crud', 'sa', '123', {
+    host: 'localhost',
+    dialect:  'mssql',
+    port: 1433,
+  });
 
 
-
-
-module.exports = sequelize
+  try {
+    sequelize.authenticate()
+    console.log('Conectamos com o Sequelize!')
+  } catch (error) {
+    console.error('Não foi possível conectar:', error)
+  }
+  
+  module.exports = sequelize
+  
